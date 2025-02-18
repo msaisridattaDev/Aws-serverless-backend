@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "540f1b66-f12a-40c8-8336-14c6db5f7e81",
+		"name": "Serverless Notes API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "40685377"
+	},
+	"item": [
+		{
+			"name": "https://i2s8hv1bpl.execute-api.us-east-1.amazonaws.com/dev/notes",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://i2s8hv1bpl.execute-api.us-east-1.amazonaws.com/dev/notes"
+			},
+			"response": []
+		},
+		{
+			"name": "https://i2s8hv1bpl.execute-api.us-east-1.amazonaws.com/dev/note/1739190378307",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://i2s8hv1bpl.execute-api.us-east-1.amazonaws.com/dev/note/1739190378307"
+			},
+			"response": []
+		},
+		{
+			"name": "https://i2s8hv1bpl.execute-api.us-east-1.amazonaws.com/dev/note/1739190378307 Copy",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://i2s8hv1bpl.execute-api.us-east-1.amazonaws.com/dev/note/1739190378307"
+			},
+			"response": []
+		},
+		{
+			"name": "https://i2s8hv1bpl.execute-api.us-east-1.amazonaws.com/dev/note/1739200419228\n",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "https://i2s8hv1bpl.execute-api.us-east-1.amazonaws.com/dev/note/1739200419228\n"
+			},
+			"response": []
+		},
+		{
+			"name": "https://i2s8hv1bpl.execute-api.us-east-1.amazonaws.com/dev/note",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Sample Note\",\r\n  \"content\": \"This is a test note.\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://i2s8hv1bpl.execute-api.us-east-1.amazonaws.com/dev/note"
+			},
+			"response": []
+		}
+	]
+}
