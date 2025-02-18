@@ -57,24 +57,29 @@ module.exports.createNote = async (event) => {
 };
 
 /** 📌 Get All Notes (Optimized with Query & Logging) */
+/** 📌 Get All Notes (Fixed - Using ScanCommand Instead of QueryCommand) */
+const { ScanCommand } = require("@aws-sdk/lib-dynamodb");
+
 module.exports.getAllNotes = async () => {
   logger.info("📩 Received request to fetch all notes.");
 
   try {
+    // 🚀 Use ScanCommand instead of QueryCommand (since we are fetching all notes)
     const params = {
-      TableName: TABLE_NAME,
-      KeyConditionExpression: "noteId >= :zero",
-      ExpressionAttributeValues: { ":zero": "0" },
+      TableName: TABLE_NAME
     };
 
-    const result = await docClient.send(new QueryCommand(params));
-    logger.info({ itemCount: result.Items.length }, "✅ Successfully fetched all notes.");
+    const result = await docClient.send(new ScanCommand(params));
+
+    logger.info({ itemCount: result.Items?.length || 0 }, "✅ Successfully fetched all notes.");
+    
     return { statusCode: 200, body: JSON.stringify(result.Items) };
   } catch (error) {
     logger.error({ error }, "❌ Error in getAllNotes.");
     return { statusCode: 500, body: JSON.stringify({ error: "Internal Server Error" }) };
   }
 };
+
 
 /** 🔍 Get Single Note (Now with Detailed Logging & Error Handling) */
 module.exports.getNote = async (event) => {
